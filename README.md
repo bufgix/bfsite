@@ -1,4 +1,6 @@
 # bfsite
 
 
-`Only paste app support yet`
+`Support PasteApp yet`
+
+![image](https://i.resimyukle.xyz/Jzz44S.png)
