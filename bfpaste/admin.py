@@ -7,11 +7,15 @@ from .models import Paste
 
 class PasteAdmin(admin.ModelAdmin):
     def view_paste(self):
-        return mark_safe(f"<a href='{reverse('bfpaste:show_paste', kwargs={'paste_id': self.paste_id})}'>View</a>")
+        return mark_safe(f"<a target='_blank' href='{reverse('bfpaste:show_paste', kwargs={'paste_id': self.paste_id})}'>View</a>")
     view_paste.short_description = 'Page'
 
+    def absolute_url(self):
+        return mark_safe(f"<a target='_blank' href='{reverse('bfpaste:show_paste', kwargs={'paste_id': self.paste_id})}'>{reverse('bfpaste:show_paste', kwargs={'paste_id': self.paste_id})}</a>")
+
+    exclude = ('paste_id',)
     list_display = ('author', 'pub_date', view_paste)
-    readonly_fields = ('paste_id', 'pub_date')
+    readonly_fields = ('pub_date', absolute_url)
 
 
 admin.site.register(Paste, PasteAdmin)
