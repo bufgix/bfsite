@@ -1,0 +1,36 @@
+{% extends 'bfpaste/base.html' %}
+
+{% block content %}
+    <div class="text-center">
+        <p class="header-info consolas">Paste from <strong>{{ paste.author }}</strong> at <strong>{{ paste.pub_date }}</strong></p>
+    </div>
+    <div class="paste-content p-3 pb-1" style="background-color: #272822">
+        <div class="d-flex justify-content-between">
+            <p class="text-muted consolas">Language {{ paste.lang|title }}</p>
+            <button class="btn" id="copy_btn" onclick="CopyToClipboard('source')">Copy</button> 
+        </div>
+        <pre><code class="language-{{ paste.lang }}" id="source">{{ paste.content }}</code></pre>
+        <div class="text-right">
+            <p class="text-muted consolas m-0">BF Paste</p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script>
+        function CopyToClipboard(containerid) {
+            if (document.selection) { 
+                var range = document.body.createTextRange();
+                range.moveToElementText(document.getElementById(containerid));
+                range.select().createTextRange();
+                document.execCommand("copy"); 
+            
+            } else if (window.getSelection) {
+                var range = document.createRange();
+                    range.selectNode(document.getElementById(containerid));
+                    window.getSelection().addRange(range);
+                    document.execCommand("copy");
+                    document.getElementById("copy_btn").innerHTML = "Copied"
+            }}
+    </script>
+{% endblock %}

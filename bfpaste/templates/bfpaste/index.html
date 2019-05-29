@@ -1,0 +1,22 @@
+{% extends "bfpaste/base.html" %}
+
+{% block content %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <div class="form-group col-md-10">
+                {{ form.author.label_tag }}
+                {{ form.author }}
+            </div>
+            <div class="form-group col-md-2">
+                {{ form.lang.label_tag }}
+                {{ form.lang }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form.content.label_tag }}
+            {{ form.content }}
+        </div>
+        <input class="btn" type="submit" value="Paste!">
+    </form>
+{% endblock %}

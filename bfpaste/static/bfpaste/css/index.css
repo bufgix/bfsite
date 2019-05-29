@@ -1,0 +1,83 @@
+body {
+    color: #CCCCCC;
+    background-color: #1E1E1E;
+}
+
+
+.consolas {
+    font-family: monospace;
+}
+
+textarea, .form-control{
+    background-color: #303030 !important;
+    color: #CCCCCC;
+}
+
+.paste-content {
+    background-color: #272822;
+
+    -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+pre{
+    overflow-y: scroll;
+}
+pre::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #1E1E1E;
+}
+pre::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #1E1E1E;
+}
+
+pre::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
+.btn {
+    color: #CCCCCC;
+    border: 1px solid #CCCCCC; 
+}
+.btn:hover{
+    color: #CCCCCC;
+    opacity: 0.7;
+    
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+.form-control:focus {
+    border-color: #CCCCCC;
+    outline: 0;
+    /* IE6-9 */
+    -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    color: #CCCCCC;
+    opacity: 0.8;
+}
+
+.header-info {
+    font-size: 24px;
+}
+
+@media (max-width: 767px) {
+    .w-25{
+       width: 100% !important; 
+    }
+    .header-info {
+        font-size: 12px;
+    }
+    code {
+        font-size: 12px !important;
+    }
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block styles %} {% endblock %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bfpaste/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bfpaste/css/prim.css' %}">
+    <link rel="stylesheet" href="{% static 'bfpaste/css/index.css' %}">
+    <title>{% block title %}BF Paste{% endblock %}</title>
+</head>
+<body>
+    <div class="container mt-5 mb-3">
+        {% block content %}{% endblock %}
+    </div>
+
+ 
+    <script src="{% static 'bfpaste/js/jquery-3.2.1.js' %}"></script>
+    <script src="{% static 'bfpaste/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'bfpaste/js/prim.js' %}"></script>
+    {% block js %}{% endblock %}
+</body>
+</html>
