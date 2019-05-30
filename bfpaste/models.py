@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils import timezone
 
 from .utils import SUPPORT_LANGS
 
@@ -13,7 +12,7 @@ class Paste(models.Model):
     paste_id = models.CharField(unique=True, max_length=30)
     author = models.CharField(max_length=100, default="Anonymous")
     content = models.TextField()
-    pub_date = models.DateTimeField('Publising date', default=timezone.now())
+    pub_date = models.DateTimeField('Publising date', auto_now_add=True)
     lang = models.CharField(choices=SUPPORT_LANGS, max_length=100,
                             default=SUPPORT_LANGS[0], verbose_name="Language")
 
