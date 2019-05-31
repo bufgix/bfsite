@@ -1,0 +1,9 @@
+{% extends "bfblog/base.html" %}
+{% load markdownify %}
+
+{% block content%}
+    {% for post in posts %}
+        {{ post.title }}<br>
+        {{ post.content | markdown | safe }}
+    {% endfor %}
+{% endblock %}
