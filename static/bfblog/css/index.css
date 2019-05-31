@@ -2,6 +2,11 @@ body {
     color: #CCCCCC;
     background-color: #1E1E1E;
 }
+.deep{
+    -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);    
+}
 
 .highlight {
     background-color: #272822;
@@ -10,3 +15,40 @@ body {
     -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
+
+hr {
+    height: 8px;
+    background-image: linear-gradient(90deg, #CCCCCC, transparent);
+    border: 0;
+    height: 1px;
+}
+
+code {
+    background-color: #2E3A50;
+    border-radius: 5px;
+    color: #CCCCCC;
+    padding: 3px
+
+}
+
+.post-meta {
+    list-style-type: none;
+    padding-left: 0;
+}
+.post-meta li {
+    display:inline;
+    padding-right: 10px;
+}
+
+.consolas {
+    font-family: monospace;
+}
+
+a {
+    color: #FDCE93;
+}
+a:hover{
+    color: #FDCE93;
+    opacity: 0.8;
+}
+
