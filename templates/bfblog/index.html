@@ -2,8 +2,24 @@
 {% load markdownify %}
 
 {% block content%}
+<div class="row">
     {% for post in posts %}
-        {{ post.title }}<br>
-        {{ post.content | markdown | safe }}
+    <div class="col-md-4">
+        <div class="card text-white bg-dark mb-4 mb-sm-0">
+            <img class="card-img-top" src="{{ post.banner_image.url }}" alt="{{ post.slug }}">
+            <div class="card-body">
+                <h5 class="card-text">{{ post.title | title }}</h5>
+                <hr />
+                <div class="d-flex justify-content-between">
+                    <p class="card-text" style="margin-bottom: 0"><small class="text-muted"><i class="fas fa-clock"></i>
+                            <i>{{ post.created_on }}</i></small></p>
+                    <a href="{{ post.absolute_url }}">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+        <h1>Sorry, there's nothing here</h1>
     {% endfor %}
+</div>
 {% endblock %}

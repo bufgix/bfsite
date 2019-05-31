@@ -2,15 +2,15 @@ body {
     color: #CCCCCC;
     background-color: #1E1E1E;
 }
-.deep{
+
+.deep {
     -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);    
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 .highlight {
     background-color: #272822;
-
     -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
@@ -28,15 +28,15 @@ code {
     border-radius: 5px;
     color: #CCCCCC;
     padding: 3px
-
 }
 
 .post-meta {
     list-style-type: none;
     padding-left: 0;
 }
+
 .post-meta li {
-    display:inline;
+    display: inline;
     padding-right: 10px;
 }
 
@@ -47,8 +47,66 @@ code {
 a {
     color: #FDCE93;
 }
-a:hover{
+
+a:hover {
     color: #FDCE93;
     opacity: 0.8;
 }
 
+pre::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    background-color: #1E1E1E;
+}
+
+pre::-webkit-scrollbar {
+    width: 5px;
+    background-color: #1E1E1E;
+}
+
+pre::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #555;
+}
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(30,30,30);
+    background-color: rgba(30,30,30, 0.9);
+    overflow-x: hidden;
+    transition: 0.3s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #CCCCCC;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}

@@ -90,3 +90,7 @@ db.sqlite3
 
 #IDE stuff
 .vscode/
+
+#Images
+media/postimages/*
+!media/postimages/.keep
