@@ -1,11 +1,13 @@
 from django.shortcuts import render
-
+from django.views import generic
 from .models import BlogPost
 
-def blog_index(request):
-    posts = BlogPost.objects.filter(status=1).order_by("-created_on")
+class PostListView(generic.ListView):
+    queryset = BlogPost.objects.filter(status=1).order_by('-created_on')
+    template_name = 'bfblog/index.html'
+    context_object_name = 'posts'
 
-    return render(request, 'bfblog/index.html', context= {'posts': posts})
-
-def blog_new(request):
-    pass
+class PostDetailView(generic.DetailView):
+    model = BlogPost
+    template_name = 'bfblog/one_post.html'
+    context_object_name = 'post'

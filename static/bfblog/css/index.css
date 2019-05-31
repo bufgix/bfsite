@@ -1,0 +1,12 @@
+body {
+    color: #CCCCCC;
+    background-color: #1E1E1E;
+}
+
+.highlight {
+    background-color: #272822;
+
+    -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}

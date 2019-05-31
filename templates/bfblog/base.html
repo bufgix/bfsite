@@ -5,11 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{% static 'bfblog/css/blog_index.css' %}">
-    <title>{{ title }}</title>
+    {% block styles %} {% endblock %}
+    <link rel="stylesheet" href="{% static 'general/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bfblog/css/highlight.css' %}">
+    <link rel="stylesheet" href="{% static 'bfblog/css/index.css' %}">
+    <title>{% block title %}BF Paste{% endblock %}</title>
 </head>
 <body>
-    {% block content %}
-    {% endblock %}
+    <div class="container mt-5 mb-3">
+        {% block content %}{% endblock %}
+    </div>
+
+ 
+    <script src="{% static 'general/js/jquery-3.2.1.js' %}"></script>
+    <script src="{% static 'general/js/bootstrap.min.js' %}"></script>
+    {% block js %}{% endblock %}
 </body>
 </html>
