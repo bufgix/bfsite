@@ -1,6 +1,8 @@
 # bfsite
 
+## Paste App
+![image](https://i.resimyukle.xyz/Hb7CKc.png)
 
-`Support PasteApp yet`
-
-![image](https://i.resimyukle.xyz/Jzz44S.png)
+## Blog
+![image](https://i.resimyukle.xyz/I4S8VL.png)
+![image](https://i.resimyukle.xyz/AAMeV3.png)
