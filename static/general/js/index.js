@@ -1,3 +1,3 @@
 $(document).ready(() => {
-    $('img').addClass('img-fluid deep');
+    AOS.init();
 })
