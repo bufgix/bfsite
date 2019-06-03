@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AbstractUser
+from django.utils.deconstruct import deconstructible
 
 import pathlib
 import secrets
@@ -11,20 +12,29 @@ STATUS = (
     (1, "Publish")
 )
 
+@deconstructible
+class PathandRename:
+    def __init__(self, sub_path):
+        self.path = sub_path
 
-def path_and_rename(path):
-    def wrapper(instance, filename):
+    def __call__(self, instance, filename):
         ext = pathlib.Path(filename).suffix
         filename = f"{secrets.token_urlsafe(10) + ext}"
-        return os.path.join(path, filename)
-    return wrapper
+        return os.path.join(self.path, filename)
+    
+path_and_rename = PathandRename
 
+class SuperUser(AbstractUser):
+    nick = models.CharField(verbose_name="Nick", max_length=100)
+
+    def __str__(self):
+        return self.username
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=200, unique=True, verbose_name="Title")
     slug = models.SlugField(max_length=200, unique=True, verbose_name="Slug")
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="blog_posts")
+        SuperUser, on_delete=models.CASCADE, related_name="blog_posts")
     update_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)

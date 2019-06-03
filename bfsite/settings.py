@@ -24,12 +24,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+AUTH_USER_MODEL = "bfblog.SuperUser"
 
 # Application definition
-
 INSTALLED_APPS = [
     'bfpaste',
-    'bfblog',
+    'bfblog.apps.BfblogConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
