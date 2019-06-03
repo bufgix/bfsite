@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,36 +15,37 @@
     <link rel="stylesheet" href="{% static 'bfblog/css/index.css' %}">
     <title>{% block title %}BF Paste{% endblock %}</title>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="{% url 'bfblog:index' %}">BFBLOG</a>
         <button class="navbar-toggler" type="button" onclick="openNav()">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'bfblog:index' %}">Blog</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'bfpaste:index' %}">Paste</a>
-            </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'bfblog:index' %}">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'bfpaste:index' %}">Paste</a>
+                </li>
         </div>
         <div id="mobilenav" class="overlay">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <div class="overlay-content">
-                  <a href="{% url 'bfblog:index' %}">Blog</a>
-                  <a href="{% url 'bfpaste:index' %}">Paste</a>
-                </div>
-              </div>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <a href="{% url 'bfblog:index' %}">Blog</a>
+                <a href="{% url 'bfpaste:index' %}">Paste</a>
+            </div>
+        </div>
     </nav>
 
-    <div class="container mt-5 mb-3">
+    <div class="container mt-5 mb-3 content">
         {% block content %}{% endblock %}
     </div>
 
- 
+
     <script src="{% static 'general/js/jquery-3.2.1.js' %}"></script>
     <script src="{% static 'general/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'bfblog/js/venobox.min.js' %}"></script>

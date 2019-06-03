@@ -3,13 +3,13 @@
 
 {% block content%}
     <div data-aos="fade-up">
-        <img class="img-fluid" src="{{ post.banner_image.url }}" alt="{{ post.title }}" />
+        <img class="img-fluid post-image" src="{{ post.banner_image.url }}" alt="{{ post.title }}" />
         <div class="blog-content mt-2">
             <div class="title">
                 <h1>{{ post.title }}</h1>
                 <ul class="post-meta">
                     <li><i class="fas fa-pencil-alt"></i> <u>{{ post.author | title }}</u></li>
-                    <li><i class="fas fa-clock"></i> <i>{{ post.created_on }}</i></li>
+                    <li><i class="fas fa-clock"></i> <i>{{ post.created_on | date:'Y-m-d' }}</i></li>
                 </ul>
             </div>
             <hr />

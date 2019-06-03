@@ -3,6 +3,23 @@ body {
     background-color: #1E1E1E;
 }
 
+#particles-js {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    z-index: -1;
+}
+.sp-wrapper {
+    background-color: #1E1E1E;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+svg {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
 .deep {
     -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
@@ -15,6 +32,12 @@ body {
     -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
+
+.blog-content {
+    word-break: break-all;
+    white-space: normal;
+}
+
 pre {
     color: #CCCCCC
 }
@@ -70,7 +93,7 @@ pre::-webkit-scrollbar {
 pre::-webkit-scrollbar-thumb {
     border-radius: 3px;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-    background-color: #555;
+    background-color: #ADADAD;
 }
 
 .overlay {
@@ -80,8 +103,8 @@ pre::-webkit-scrollbar-thumb {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgb(30,30,30);
-    background-color: rgba(30,30,30, 0.9);
+    background-color: rgb(30, 30, 30);
+    background-color: rgba(30, 30, 30, 0.9);
     overflow-x: hidden;
     transition: 0.3s;
 }
@@ -112,4 +135,10 @@ pre::-webkit-scrollbar-thumb {
     top: 20px;
     right: 45px;
     font-size: 60px;
+}
+
+@media (max-width: 767px) {
+    #particles-js {
+        height: 150px;
+    }
 }
