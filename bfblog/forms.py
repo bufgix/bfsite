@@ -3,13 +3,13 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 from .models import SuperUser
 
-class CustomUserCreationForm(UserCreationForm):
+class SuperUserCreationForm(UserCreationForm):
 
     class Meta(UserCreationForm):
         model = SuperUser
         fields = '__all__'
 
-class CustomUserChangeForm(UserChangeForm):
+class SuperUserChangeForm(UserChangeForm):
     
     class Meta:
         model = SuperUser

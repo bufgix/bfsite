@@ -3,7 +3,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.utils.safestring import mark_safe
 
 from .models import BlogPost, SuperUser
-from .forms import CustomUserChangeForm, CustomUserCreationForm
+from .forms import SuperUserChangeForm, SuperUserCreationForm
 
 
 class BlogPostAdmin(admin.ModelAdmin):
@@ -18,8 +18,8 @@ class BlogPostAdmin(admin.ModelAdmin):
 
 
 class SuperUserAdmin(UserAdmin):
-    add_form = CustomUserCreationForm
-    form = CustomUserChangeForm
+    add_form = SuperUserCreationForm
+    form = SuperUserChangeForm
     model = SuperUser
     list_display = ['username', 'email', 'first_name', 'last_name']
 
