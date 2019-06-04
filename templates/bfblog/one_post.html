@@ -2,18 +2,31 @@
 {% load markdownify %}
 
 {% block content%}
-    <div data-aos="fade-up">
-        <img class="img-fluid post-image" src="{{ post.banner_image.url }}" alt="{{ post.title }}" />
-        <div class="blog-content mt-2">
-            <div class="title">
-                <h1>{{ post.title }}</h1>
-                <ul class="post-meta">
-                    <li><i class="fas fa-pencil-alt"></i> <u>{{ post.author | title }}</u></li>
-                    <li><i class="fas fa-clock"></i> <i>{{ post.created_on | date:'Y-m-d' }}</i></li>
-                </ul>
-            </div>
-            <hr />
-            {{ post.content | markdown | safe }}
+<div data-aos="fade-up">
+    <img class="img-fluid post-image" src="{{ post.banner_image.url }}" alt="{{ post.title }}" />
+    <div class="blog-wrap mt-2">
+        <div class="text-center">
+            <h1 class="font-weight-bolder">{{ post.title }}</h1>
         </div>
+        <div class="post-meta">
+            <div class="d-flex justify-content-between">
+                <div class="text-left">
+                    <img class="img-fluid rounded-circle" src="{{ post.author.user_image.url }}" alt="{{ post.author.username }}"
+                        height="50" width="50">
+                    <span class="text-muted font-weight-bolder ml-1">{{ post.author.first_name | title }}</span>
+                </div>
+                <p class="align-middle"><i class="far fa-clock"></i> <i>{{ post.created_on | date:'d-m-Y' }}</i></p>
+            </div>
+        </div>
+        <div class="blog-content mb-4">
+            <hr style="height: 5px"/>
+            {{ post.content | markdown | safe }}
+            <hr>
+            <div class="content-footer d-flex justify-content-end">
+                <p class="text-muted"><i class="far fa-clock"></i> <i>{{ post.update_on | date:'d-m-Y' }}</i></p>
+            </div>
+        </div>
+
     </div>
+</div>
 {% endblock %}

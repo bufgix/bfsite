@@ -21,12 +21,21 @@ class SuperUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
     model = SuperUser
-    list_display = ['email', 'username', 'nick']
+    list_display = ['username', 'email', 'first_name', 'last_name']
+
 
     def get_fieldsets(self, request, obj=None):
         fs = super().get_fieldsets(request, obj=obj)
-        fs[0][1]['fields'] = fs[0][1]['fields'] + ('nick',)
-        __import__('pprint').pprint(fs)
+        fs = (('General', {'fields': ('username', 'password', 'user_image')}),
+              ('Personel Information', {
+               'fields': ('first_name', 'last_name', 'email')}),
+              ('Permission',
+               {'fields': ('is_active',
+                           'is_staff',
+                           'is_superuser',
+                           'groups',
+                           'user_permissions')}),
+              ('Important Dates', {'fields': ('last_login', 'date_joined')}))
         return fs
 
 

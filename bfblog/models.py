@@ -12,6 +12,7 @@ STATUS = (
     (1, "Publish")
 )
 
+
 @deconstructible
 class PathandRename:
     def __init__(self, sub_path):
@@ -21,14 +22,27 @@ class PathandRename:
         ext = pathlib.Path(filename).suffix
         filename = f"{secrets.token_urlsafe(10) + ext}"
         return os.path.join(self.path, filename)
-    
+
+
 path_and_rename = PathandRename
 
+
 class SuperUser(AbstractUser):
-    nick = models.CharField(verbose_name="Nick", max_length=100)
+    user_image = models.ImageField(upload_to=path_and_rename(
+        'profile_pics'), verbose_name="User Image")
+
+    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+        try:
+            this = SuperUser.objects.get(id=self.id)
+            if this.user_image != self.user_image:
+                this.user_image.delete()
+        except:
+            pass
+        return super().save(force_insert=force_insert, force_update=force_update, using=using, update_fields=update_fields)
 
     def __str__(self):
         return self.username
+
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=200, unique=True, verbose_name="Title")

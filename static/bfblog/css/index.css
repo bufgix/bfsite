@@ -1,6 +1,14 @@
+/*
+    @author: Bufgix
+*/
+
 body {
     color: #CCCCCC;
     background-color: #1E1E1E;
+}
+
+.navbar {
+    border-bottom: 1px solid #FDCE93;
 }
 
 #particles-js {
@@ -9,12 +17,14 @@ body {
     height: 350px;
     z-index: -1;
 }
+
 .sp-wrapper {
     background-color: #1E1E1E;
     position: absolute;
     bottom: 0;
     width: 100%;
 }
+
 svg {
     display: inline-block;
     vertical-align: bottom;
@@ -32,6 +42,49 @@ svg {
     -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
+
+a {
+    color: #FDCE93;
+}
+a:hover {
+    color: #FDCE93;
+    opacity: 0.7;
+    text-decoration: none;
+}
+
+.anim-link {
+    position: relative;
+    color: #FDCE93;
+    text-decoration: none;
+}
+
+.anim-link:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #FDCE93;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.anim-link:hover:before {
+    color: #FDCE93;
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.card {
+    background-color: transparent;
+    border: 1px solid #FDCE93;
+}
+
 
 .blog-content {
     word-break: break-all;
@@ -56,27 +109,8 @@ code {
     padding: 3px
 }
 
-.post-meta {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.post-meta li {
-    display: inline;
-    padding-right: 10px;
-}
-
 .consolas {
     font-family: monospace;
-}
-
-a {
-    color: #FDCE93;
-}
-
-a:hover {
-    color: #FDCE93;
-    opacity: 0.8;
 }
 
 pre::-webkit-scrollbar-track {
@@ -135,6 +169,23 @@ pre::-webkit-scrollbar-thumb {
     top: 20px;
     right: 45px;
     font-size: 60px;
+}
+
+footer>.footer>ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+footer>.footer>ul>li {
+    display: inline;
+    font-size: 32px;
+    margin: 5px;
+    transition: .2s;
+}
+
+footer>.footer>ul>li:hover {
+    font-size: 48px;
 }
 
 @media (max-width: 767px) {

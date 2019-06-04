@@ -93,4 +93,6 @@ db.sqlite3
 
 #Images
 media/postimages/*
+media/profile_pics/*
 !media/postimages/.keep
+!media/profile_pics/.keep
