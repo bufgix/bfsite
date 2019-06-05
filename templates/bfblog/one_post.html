@@ -13,7 +13,7 @@
                 <div class="text-left">
                     <img class="img-fluid rounded-circle" src="{{ post.author.user_image.url }}" alt="{{ post.author.username }}"
                         height="50" width="50">
-                    <span class="text-muted font-weight-bolder ml-1">{{ post.author.first_name | title }}</span>
+                    <p class="text-muted font-weight-bolder ml-1" style="display: inline">{{ post.author.first_name | title }}</p>
                 </div>
                 <div class="text-right">
                     <p class="align-middle"><i class="far fa-clock"></i> <i>{{ post.created_on | date:'d-m-Y' }}</i></p>
