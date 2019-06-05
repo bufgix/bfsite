@@ -1,10 +1,10 @@
 {% extends 'bfpaste/base.html' %}
 
 {% block content %}
-    <div class="text-center">
+    <div class="text-center" data-aos="fade-up">
         <p class="header-info consolas">Paste from <strong>{{ paste.author }}</strong> at <strong>{{ paste.pub_date }}</strong></p>
     </div>
-    <div class="paste-content p-3 pb-1" style="background-color: #272822">
+    <div class="paste-content p-3 pb-1" style="background-color: #272822" data-aos="fade-up">
         <div class="d-flex justify-content-between">
             <p class="text-muted consolas">Language {{ paste.lang|title }}</p>
             <button class="btn" id="copy_btn" onclick="CopyToClipboard('source')">Copy</button> 

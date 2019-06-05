@@ -7,6 +7,65 @@ body {
     background-color: #1E1E1E;
 }
 
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+#sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #6d7fcc;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar ul li.active>a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
 .navbar {
     border-bottom: 1px solid #FDCE93;
 }
@@ -19,11 +78,13 @@ body {
 }
 
 .white {
-    color: #CCCCCC
+    color: #CCCCCC;
 }
+
 .white:hover {
     color: #CCCCCC;
 }
+
 .sp-wrapper {
     background-color: #1E1E1E;
     position: absolute;
@@ -52,6 +113,7 @@ svg {
 a {
     color: #FDCE93;
 }
+
 a:hover {
     color: #FDCE93;
     opacity: 0.7;
@@ -75,8 +137,8 @@ a:hover {
     visibility: hidden;
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
-    -webkit-transition: all 0.3s ease-in-out 0s;
-    transition: all 0.3s ease-in-out 0s;
+    -webkit-transition: all 0.1s ease-in-out 0s;
+    transition: all 0.1s ease-in-out 0s;
 }
 
 .anim-link:hover:before {
@@ -91,18 +153,20 @@ a:hover {
     border: 1px solid #FDCE93;
 }
 
-.card ul , .post-meta ul{
+.card ul, .post-meta ul {
     list-style-type: none;
-    padding: 0; margin: 0;
+    padding: 0;
+    margin: 0;
 }
+
 .card ul li, .post-meta ul li {
     margin: 0;
-    display: inline;
+    display: inline-block;
     margin: 5px;
 }
 
 .blog-content {
-    word-break: break-all;
+    word-break: normal;
     white-space: normal;
 }
 
@@ -203,8 +267,11 @@ footer>.footer>ul>li:hover {
     font-size: 48px;
 }
 
-@media (max-width: 767px) {
-    #particles-js {
-        height: 150px;
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
     }
 }

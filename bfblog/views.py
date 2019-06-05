@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views import generic
 from .models import BlogPost
 
+
 class PostListView(generic.ListView):
     queryset = BlogPost.objects.filter(status=1).order_by('-created_on')
     template_name = 'bfblog/index.html'
@@ -11,19 +12,11 @@ class PostListView(generic.ListView):
         qs = super().get_queryset()
         tag = self.request.GET.get('tag')
         if tag:
-            print(tag)
-            qs = BlogPost.objects.filter(tags__slug=tag).order_by('-created_on')
+            qs = BlogPost.objects.filter(
+                tags__slug=tag).order_by('-created_on')
         return qs
 
-class PostPreviewView(generic.DeleteView):
-    model = BlogPost
-    template_name = 'bfblog/one_post.html'
-    context_object_name = 'post'
-    
-    def get_queryset(self):
-        qs = BlogPost.objects.filter(slug=self.slug).get()
 
-        return qs
 class PostDetailView(generic.DetailView):
     model = BlogPost
     template_name = 'bfblog/one_post.html'

@@ -44,7 +44,7 @@ class SuperUser(AbstractUser):
         return self.username
 
 
-class BloTags(models.Model):
+class BlogTags(models.Model):
     name = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=100, unique=True)
 
@@ -65,7 +65,7 @@ class BlogPost(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(
         choices=STATUS, default=0, verbose_name="Status")
-    tags = models.ManyToManyField(BloTags)
+    tags = models.ManyToManyField(BlogTags)
     banner_image = models.ImageField(upload_to=path_and_rename(
         'postimages'), verbose_name="Post image")
 
@@ -84,9 +84,6 @@ class BlogPost(models.Model):
 
     def absolute_url(self):
         return reverse('bfblog:single_post', kwargs={'slug': self.slug})
-
-    def preview_url(self):
-        return reverse('bfblog:preview_post', kwargs={'slug': self.slug})
         
     def __str__(self):
         return self.title.title()

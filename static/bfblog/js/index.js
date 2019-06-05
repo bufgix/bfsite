@@ -63,7 +63,7 @@ $(document).ready(() => {
         return "<div class='text-center'><a class='venobox_custom' href='" + $(this).attr('src') +"'></a></div>"
     })
 
-    $('img').addClass('img-fluid deep');
+    $(".blog-content").find('img').addClass('img-fluid deep');
     $('.venobox_custom').venobox({
         spinner: 'cube-grid',
         spinColor: '#FDCE93'
