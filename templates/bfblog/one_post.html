@@ -15,7 +15,15 @@
                         height="50" width="50">
                     <span class="text-muted font-weight-bolder ml-1">{{ post.author.first_name | title }}</span>
                 </div>
-                <p class="align-middle"><i class="far fa-clock"></i> <i>{{ post.created_on | date:'d-m-Y' }}</i></p>
+                <div class="text-right">
+                    <p class="align-middle"><i class="far fa-clock"></i> <i>{{ post.created_on | date:'d-m-Y' }}</i></p>
+                    <ul>
+                        {% for tag in post.tags.all %}
+                            <li><a class="white" href="{% url 'bfblog:index'%}?tag={{ tag.slug }}"><i class="fas fa-tag"></i> {{ tag.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                
             </div>
         </div>
         <div class="blog-content mb-4">

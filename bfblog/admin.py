@@ -2,19 +2,26 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.utils.safestring import mark_safe
 
-from .models import BlogPost, SuperUser
-from .forms import SuperUserChangeForm, SuperUserCreationForm
+from .models import BlogPost, SuperUser, BloTags
+from .forms import SuperUserChangeForm, SuperUserCreationForm, BlogPostForm
 
 
 class BlogPostAdmin(admin.ModelAdmin):
     def get_page(self):
         return mark_safe(f'<a target="_blank" href="{self.absolute_url()}">Show Post</a>')
+    def get_preview(self):
+        return mark_safe(f'<a target="_blank" href="{self.preview_url()}">Preview</a>')
     get_page.short_description = "Page"
+    get_preview.short_description = "Preview"
 
     list_display = ('title', 'created_on', 'update_on', 'status', get_page)
     list_filter = ("status",)
     search_fields = ['title', 'content']
     prepopulated_fields = {'slug': ('title',)}
+    form = BlogPostForm
+    readonly_fields = (get_preview, )
+class BlogTagsAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('name',)}
 
 
 class SuperUserAdmin(UserAdmin):
@@ -39,5 +46,6 @@ class SuperUserAdmin(UserAdmin):
         return fs
 
 
+admin.site.register(BloTags, BlogTagsAdmin)
 admin.site.register(SuperUser, SuperUserAdmin)
 admin.site.register(BlogPost, BlogPostAdmin)

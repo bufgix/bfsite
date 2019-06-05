@@ -7,6 +7,23 @@ class PostListView(generic.ListView):
     template_name = 'bfblog/index.html'
     context_object_name = 'posts'
 
+    def get_queryset(self):
+        qs = super().get_queryset()
+        tag = self.request.GET.get('tag')
+        if tag:
+            print(tag)
+            qs = BlogPost.objects.filter(tags__slug=tag).order_by('-created_on')
+        return qs
+
+class PostPreviewView(generic.DeleteView):
+    model = BlogPost
+    template_name = 'bfblog/one_post.html'
+    context_object_name = 'post'
+    
+    def get_queryset(self):
+        qs = BlogPost.objects.filter(slug=self.slug).get()
+
+        return qs
 class PostDetailView(generic.DetailView):
     model = BlogPost
     template_name = 'bfblog/one_post.html'

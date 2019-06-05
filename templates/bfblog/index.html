@@ -12,9 +12,17 @@
                 <h5 class="card-text">{{ post.title | title }}</h5>
                 <hr />
                 <div class="d-flex justify-content-between">
-                    <p class="card-text" style="margin-bottom: 0"><small class="text-muted"><i class="fas fa-clock"></i>
+                    <div>
+                        <ul>
+                            {% for tag in post.tags.all %}
+                                <li><a class="white" href="{% url 'bfblog:index'%}?tag={{ tag.slug }}"><i class="fas fa-tag"></i> {{ tag.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        <p class="card-text mt-2"><small class="text-muted"><i class="fas fa-clock"></i>
                             <i>{{ post.created_on | date:'d-m-Y' }}</i></small></p>
-                    <a class="anim-link" href="{{ post.absolute_url }}">Read More</a>
+                    </div>
+ 
+                    <a class="anim-link mt-auto" href="{{ post.absolute_url }}">Read More</a>
                 </div>
             </div>
         </div>

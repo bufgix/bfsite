@@ -18,6 +18,12 @@ body {
     z-index: -1;
 }
 
+.white {
+    color: #CCCCCC
+}
+.white:hover {
+    color: #CCCCCC;
+}
 .sp-wrapper {
     background-color: #1E1E1E;
     position: absolute;
@@ -85,6 +91,15 @@ a:hover {
     border: 1px solid #FDCE93;
 }
 
+.card ul , .post-meta ul{
+    list-style-type: none;
+    padding: 0; margin: 0;
+}
+.card ul li, .post-meta ul li {
+    margin: 0;
+    display: inline;
+    margin: 5px;
+}
 
 .blog-content {
     word-break: break-all;
