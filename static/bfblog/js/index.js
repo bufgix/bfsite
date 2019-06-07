@@ -62,6 +62,9 @@ $(document).ready(() => {
     $(".blog-content").find('img').wrap(function() {
         return "<div class='text-center'><a class='venobox_custom' href='" + $(this).attr('src') +"'></a></div>"
     })
+    $(".blog-content").find('iframe').wrap(function(){
+        return "<div class='text-center'></div>"
+    })
 
     $(".blog-content").find('img').addClass('img-fluid deep');
     $('.venobox_custom').venobox({

@@ -2,9 +2,19 @@
     @author: Bufgix
 */
 
+
 body {
     color: #CCCCCC;
-    background-color: #1E1E1E;
+    background-color: #212529;
+    font-family: 'Press Start 2P', cursive;
+    font-family: '32bitbaby';
+}
+
+p{
+    font-size: 12px;
+}
+a{
+    font-size: 12px; 
 }
 
 .wrapper {
@@ -166,7 +176,7 @@ a:hover {
 }
 
 .blog-content {
-    word-break: normal;
+    word-wrap: break-word;
     white-space: normal;
 }
 
@@ -207,6 +217,10 @@ pre::-webkit-scrollbar-thumb {
     border-radius: 3px;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
     background-color: #ADADAD;
+}
+
+iframe, object, embed {
+    max-width: 100%;
 }
 
 .overlay {
@@ -260,12 +274,17 @@ footer>.footer>ul>li {
     display: inline;
     font-size: 32px;
     margin: 5px;
+}
+
+.footer ul li a {
+    font-size: 32px;
     transition: .2s;
 }
 
-footer>.footer>ul>li:hover {
+.footer ul li a:hover {
     font-size: 48px;
 }
+
 
 @media (max-width: 768px) {
     #sidebar {
@@ -275,3 +294,9 @@ footer>.footer>ul>li:hover {
         margin-left: 0;
     }
 }
+
+@font-face {
+    font-family: '32bitbaby';
+    src: url('../../general/webfonts/PressStart2P-Regular.ttf'); /* IE9 Compat Modes */
+}
+

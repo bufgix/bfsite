@@ -4,26 +4,26 @@
 {% block content%}
 <div class="row">
     {% for post in posts %}
-    <div class="col-md-4">
-        <div class="card text-white mb-4 mb-sm-0 mt-2 deep" data-aos="fade-up">
-            <a href="{{ post.absolute_url }}"><img class="card-img-top" src="{{ post.banner_image.url }}"
-                    alt="{{ post.slug }}"></a>
-            <div class="card-body">
-                <h5 class="card-text">{{ post.title | title }}</h5>
-                <hr />
-                <ul>
-                    {% for tag in post.tags.all %}
-                        <li><a class="white" href="{% url 'bfblog:index'%}?tag={{ tag.slug }}"><i class="fas fa-tag mr-1" ></i>{{ tag.name }}</a></li>
-                    {% endfor %}
-                </ul>
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <p class="card-text mt-2"><small class="text-muted"><i class="fas fa-clock"></i>
-                            <i>{{ post.created_on | date:'d-m-Y' }}</i></small></p>
-                    </div>
- 
-                    <a class="anim-link mt-auto" href="{{ post.absolute_url }}">Read More</a>
+    <div class="col-md-4" data-aos="fade-up">
+        <div class="nes-container is-dark is-centered with-title card mb-4 mb-sm-0 mt-2">
+            <p class="title">Article</p>
+            <a href="{{ post.absolute_url }}"><img class="img-fluid" src="{{ post.banner_image.url }}" alt="{{ post.title }}"></a>
+            <div class="d-flex justify-content-between">
+                <div>
+                    <ul>
+                        {% for tag in post.tags.all %}
+                        <li><a class="white" href="{% url 'bfblog:index'%}?tag={{ tag.slug }}"><i
+                                    class="fas fa-tag"></i>
+                                {{ tag.name }}</a></li>
+                        {% endfor %}
+                    </ul>
                 </div>
+            </div>
+            <div class="d-flex justify-content-between align-middle">
+                <p class="card-text mt-4"><small class="text-muted"><i class="fas fa-clock"></i>
+                        <i>{{ post.created_on | date:'d-m-Y' }}</i></small></p>
+
+                <a class="anim-link mt-auto align-middle" href="{{ post.absolute_url }}">Read More</a>
             </div>
         </div>
     </div>
