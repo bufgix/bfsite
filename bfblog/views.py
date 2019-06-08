@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
-from .models import BlogPost
+from .models import BlogPost, BlogTags
 
 
 class PostListView(generic.ListView):
@@ -15,7 +15,11 @@ class PostListView(generic.ListView):
             qs = BlogPost.objects.filter(
                 tags__slug=tag).order_by('-created_on')
         return qs
-
+    
+    def get_context_data(self, **kwargs):
+        cd = super().get_context_data(**kwargs)
+        cd['tags'] = {tag: tag.blogpost_set.all().count() for tag in BlogTags.objects.order_by('slug')}
+        return cd
 
 class PostDetailView(generic.DetailView):
     model = BlogPost

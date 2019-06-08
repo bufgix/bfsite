@@ -56,19 +56,29 @@ $(document).ready(() => {
         console.log('Particles json loaded');
     })*/
 
-    $(document).find('.post-image').wrap(function(){
-        return "<div class='text-center'><a class='venobox_custom' href='" + $(this).attr('src') +"'></a></div>"
+    $(document).find('.post-image').wrap(function () {
+        return "<div class='text-center'><a class='venobox_custom' href='" + $(this).attr('src') + "'></a></div>"
     });
-    $(".blog-content").find('img').wrap(function() {
-        return "<div class='text-center'><a class='venobox_custom' href='" + $(this).attr('src') +"'></a></div>"
+    $(".blog-content").find('img').wrap(function () {
+        return "<div class='text-center'><a class='venobox_custom' href='" + $(this).attr('src') + "'></a></div>"
     })
-    $(".blog-content").find('iframe').wrap(function(){
+    $(".blog-content").find('iframe').wrap(function () {
         return "<div class='text-center'></div>"
     })
 
     $(".blog-content").find('img').addClass('img-fluid deep');
+
+    // Add slideDown animation to Bootstrap dropdown when expanding.
+    $('.dropdown').on('show.bs.dropdown', function () {
+        $(this).find('.dropdown-menu').first().stop(true, true).slideDown("fast");
+    });
+
+    // Add slideUp animation to Bootstrap dropdown when collapsing.
+    $('.dropdown').on('hide.bs.dropdown', function () {
+        $(this).find('.dropdown-menu').first().stop(true, true).slideUp("fast");
+    });
     $('.venobox_custom').venobox({
         spinner: 'cube-grid',
         spinColor: '#FDCE93'
-    }); 
+    });
 })
