@@ -2,16 +2,16 @@
 
 {% block content %}
     <div class="text-center" data-aos="fade-up">
-        <p class="header-info consolas">Paste from <strong>{{ paste.author }}</strong> at <strong>{{ paste.pub_date }}</strong></p>
+        <p class="header-info">Paste from <strong>{{ paste.author }}</strong> at <strong>{{ paste.pub_date }}</strong></p>
     </div>
     <div class="paste-content p-3 pb-1" style="background-color: #272822" data-aos="fade-up">
         <div class="d-flex justify-content-between">
-            <p class="text-muted consolas">Language {{ paste.lang|title }}</p>
+            <p class="text-muted ">Language {{ paste.lang|title }}</p>
             <button class="btn" id="copy_btn" onclick="CopyToClipboard('source')">Copy</button> 
         </div>
         <pre><code class="language-{{ paste.lang }}" id="source">{{ paste.content }}</code></pre>
         <div class="text-right">
-            <p class="text-muted consolas m-0">BF Paste</p>
+            <p class="text-muted  m-0">BF Paste</p>
         </div>
     </div>
 {% endblock %}

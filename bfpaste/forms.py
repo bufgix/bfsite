@@ -10,14 +10,14 @@ class PasteForm(forms.ModelForm):
         fields = ['author', 'content', 'lang']
         exclude = ['paste_id']
         widgets = {
-            'author': forms.TextInput(attrs={'class': 'form-control w-25',
+            'author': forms.TextInput(attrs={'class': 'nes-input is-dark',
                                              'autocomplete': 'off',
                                              'spellcheck': 'false',
                                              }),
-            'content': forms.Textarea(attrs={'class': 'form-control consolas',
+            'content': forms.Textarea(attrs={'class': 'nes-input is-dark',
                                              'autocomplete': 'off',
                                              'spellcheck': 'false',
                                              'rows': 20}),
 
-            'lang': forms.Select(attrs={'class': 'form-control'})
+            'lang': forms.Select()
         }
