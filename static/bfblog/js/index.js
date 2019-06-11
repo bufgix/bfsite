@@ -65,7 +65,7 @@ $(document).ready(() => {
     $(".blog-content").find('iframe').wrap(function () {
         return "<div class='text-center'></div>"
     })
-
+    
     $(".blog-content").find('img').addClass('img-fluid deep');
 
     // Add slideDown animation to Bootstrap dropdown when expanding.
