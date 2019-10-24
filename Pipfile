@@ -10,7 +10,7 @@ autopep8 = "*"
 django = "*"
 mistune = "*"
 pygments = "*"
-pillow = "==5.4.1"
+pillow = "==6.2.0"
 
 [requires]
 python_version = "3.7"
